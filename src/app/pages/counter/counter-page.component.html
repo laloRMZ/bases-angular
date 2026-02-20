@@ -1,0 +1,25 @@
+<h1>Counter: {{ counter }}</h1>
+<h1>Counter Signal: {{ counterSignal() }}</h1>
+
+<hr/>
+
+<p-button 
+    label="+1"
+    icon="pi pi-plus"
+    severity="info"
+    (onClick)="increaseBy(1)">
+</p-button>
+
+<p-button 
+    label="-1"
+    icon="pi pi-minus"
+    severity="danger"
+    (onClick)="increaseBy(-1)">
+</p-button>
+
+<p-button 
+    label="Reset"
+    icon="pi pi-refresh"
+    severity="secondary"
+    (onClick)="resetCounter()">
+</p-button>
