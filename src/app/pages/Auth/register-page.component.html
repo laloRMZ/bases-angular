@@ -1,0 +1,16 @@
+<div style="max-width: 400px; margin: 80px auto;">
+  <h2>Registro</h2>
+
+  <form (ngSubmit)="register()">
+    <input placeholder="Nombre" [(ngModel)]="name" name="name" required />
+    <br /><br />
+
+    <input placeholder="Email" [(ngModel)]="email" name="email" required />
+    <br /><br />
+
+    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+    <br /><br />
+
+    <p-button type="submit" severity="success">Crear cuenta</p-button>
+  </form>
+</div>

@@ -1,6 +1,0 @@
-projectKey=Bases
-serverUrl=http://localhost:9000
-serverVersion=26.1.0.118079
-dashboardUrl=http://localhost:9000/dashboard?id=Bases
-ceTaskId=a4810919-3af4-4437-880f-dc81dc830cb8
-ceTaskUrl=http://localhost:9000/api/ce/task?id=a4810919-3af4-4437-880f-dc81dc830cb8

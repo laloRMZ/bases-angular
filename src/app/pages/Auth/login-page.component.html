@@ -1,0 +1,19 @@
+<div style="max-width: 400px; margin: 80px auto;">
+  <h2>Iniciar Sesión</h2>
+
+  <form (ngSubmit)="login()">
+    <div>
+      <p-button severity="info">Email</p-button>
+      <input type="email" [(ngModel)]="email" name="email" required />
+    </div>
+
+    <div style="margin-top: 15px;">
+      <p-button severity="info">Password</p-button>
+      <input type="password" [(ngModel)]="password" name="password" required />
+    </div>
+
+    <p-button type="submit" severity="success">
+      Entrar
+    </p-button>
+  </form>
+</div>
