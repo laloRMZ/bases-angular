@@ -26,6 +26,22 @@ export class SidebarComponent {
       label: 'Counter',
       icon: 'pi pi-lock',
       routerLink: '/counter'
+    },
+    {
+      label: 'Landing',
+      icon: 'pi pi-home',
+      routerLink: '/landing'
+    },
+    {
+      label: 'Login',
+      icon: 'pi pi-sign-in',
+      routerLink: '/auth/login'
+    },
+    {
+      label: 'Register',
+      icon: 'pi pi-user-plus',
+      routerLink: '/auth/register'
     }
+
   ];
 }
