@@ -1,0 +1,38 @@
+<div class="p-fluid">
+
+  <div class="field">
+    <label>Nombre</label>
+    <input pInputText [(ngModel)]="group.nombre" />
+  </div>
+
+  <div class="field">
+    <label>Nivel</label>
+    <input pInputText [(ngModel)]="group.nivel" />
+  </div>
+
+  <div class="field">
+    <label>Autor</label>
+    <input pInputText [(ngModel)]="group.autor" />
+  </div>
+
+  <div class="field">
+    <label>Integrantes</label>
+    <p-inputNumber [(ngModel)]="group.integrantes"></p-inputNumber>
+  </div>
+
+  <div class="field">
+    <label>Tickets</label>
+    <p-inputNumber [(ngModel)]="group.tickets"></p-inputNumber>
+  </div>
+
+  <div class="field">
+    <label>Descripción</label>
+    <textarea pInputTextarea rows="3" [(ngModel)]="group.descripcion"></textarea>
+  </div>
+
+  <div class="flex justify-content-end gap-2 mt-3">
+    <button pButton label="Cancelar" class="p-button-text" (click)="cancel()"></button>
+    <button pButton label="Guardar" icon="pi pi-check" (click)="save()"></button>
+  </div>
+
+</div>

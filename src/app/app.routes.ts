@@ -9,7 +9,7 @@ import { RegisterPageComponent } from './pages/Auth/register-page.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
 
-import { GroupComponent } from './pages/group/group/group.component';
+import { GroupComponent } from './pages/group/group.component';
 import { UserComponent } from './pages/user/user/user.component';
 
 export const routes: Routes = [
