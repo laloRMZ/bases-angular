@@ -1,37 +1,52 @@
 <p-toast></p-toast>
 
-<div style="max-width: 400px; margin: 80px auto;">
-  <h2>Iniciar Sesión</h2>
+<div class="login-container">
 
-  <form (ngSubmit)="login()">
+  <div class="login-card">
 
-    <div style="margin-bottom: 15px;">
-      <label>Email</label><br />
-      <input 
-        type="email" 
-        [(ngModel)]="email" 
-        name="email" 
-        required
-        style="width: 100%; padding: 8px;" />
-    </div>
+    <h2 class="title">Bienvenido</h2>
+    <p class="subtitle">Inicia sesión para continuar</p>
 
-    <div style="margin-bottom: 20px;">
-      <label>Contraseña</label><br />
-      <input 
-        type="password" 
-        [(ngModel)]="password" 
-        name="password" 
-        required
-        style="width: 100%; padding: 8px;" />
-    </div>
+    <form (ngSubmit)="login()">
 
-    <button 
-      pButton 
-      type="submit" 
-      label="Entrar" 
-      severity="success"
-      style="width: 100%;">
-    </button>
+      <div class="field">
+        <label>Email</label>
+        <span class="p-input-icon-left w-100">
+          <i class="pi pi-envelope"></i>
+          <input 
+            pInputText
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="Ingrese su correo"
+            required />
+        </span>
+      </div>
 
-  </form>
+      <div class="field">
+        <label>Contraseña</label>
+        <span class="p-input-icon-left w-100">
+          <i class="pi pi-lock"></i>
+          <input 
+            pInputText
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Ingrese su contraseña"
+            required />
+        </span>
+      </div>
+
+      <button 
+        pButton
+        type="submit"
+        label="Entrar"
+        icon="pi pi-sign-in"
+        class="login-btn">
+      </button>
+
+    </form>
+
+  </div>
+
 </div>
