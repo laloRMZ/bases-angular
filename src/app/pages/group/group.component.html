@@ -1,17 +1,28 @@
 <p-toast></p-toast>
 <p-confirmDialog></p-confirmDialog>
 
-<p-toolbar>
-  <div class="p-toolbar-group-start">
-    <h2>Gestión de Grupos</h2>
-  </div>
+<p-toolbar styleClass="mb-4">
 
-  <div class="p-toolbar-group-end">
-    <button pButton label="Nuevo" icon="pi pi-plus" (click)="openNew()"></button>
-  </div>
+  <ng-template pTemplate="start">
+    <h2>Gestión de Grupos</h2>
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <button
+    pButton
+    label="Nuevo"
+    icon="pi pi-plus"
+    *ifHasPermission="['groups:add']"
+    (click)="openNew()">
+  </button>
+  </ng-template>
+
 </p-toolbar>
 
-<p-table [value]="groups" responsiveLayout="scroll">
+<p-table
+  [value]="groups"
+  responsiveLayout="scroll"
+  styleClass="p-datatable-striped p-datatable-sm">
 
   <ng-template pTemplate="header">
     <tr>
@@ -20,32 +31,47 @@
       <th>Autor</th>
       <th>Integrantes</th>
       <th>Tickets</th>
-      <th>Acciones</th>
+      <th style="width:120px">Acciones</th>
     </tr>
   </ng-template>
 
   <ng-template pTemplate="body" let-group>
     <tr>
+
       <td>{{ group.nombre }}</td>
-      <td>{{ group.nivel }}</td>
-      <td>{{ group.autor }}</td>
-      <td>{{ group.integrantes }}</td>
-      <td>{{ group.tickets }}</td>
+
       <td>
+        <span class="p-tag p-tag-info">
+          {{ group.nivel }}
+        </span>
+      </td>
+
+      <td>{{ group.autor }}</td>
+
+      <td>{{ group.integrantes }}</td>
+
+      <td>{{ group.tickets }}</td>
+
+      <td>
+
         <button
-          pButton
-          icon="pi pi-pencil"
-          class="p-button-rounded p-button-text"
-          (click)="editGroup(group)">
-        </button>
+        pButton
+        icon="pi pi-pencil"
+        class="p-button-rounded p-button-text"
+        *ifHasPermission="['groups:edit']"
+        (click)="editGroup(group)">
+      </button>
 
         <button
           pButton
           icon="pi pi-trash"
           class="p-button-rounded p-button-text p-button-danger"
+          *ifHasPermission="['groups:delete']"
           (click)="deleteGroup(group)">
         </button>
+
       </td>
+
     </tr>
   </ng-template>
 

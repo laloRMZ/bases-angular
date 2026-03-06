@@ -6,6 +6,9 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -15,7 +18,9 @@ import { MessageService } from 'primeng/api';
     FormsModule,
     ButtonModule,
     ToastModule,
-    InputTextModule
+    InputTextModule,
+    InputGroupModule,
+    InputGroupAddonModule
   ],
   templateUrl: './login-page.component.html',
   providers: [MessageService]
@@ -55,7 +60,6 @@ export class LoginPageComponent {
         detail: 'Bienvenido al sistema'
       });
 
-      // 🔥 REDIRECCIÓN AL HOME
       setTimeout(() => {
         this.router.navigate(['/home']);
       }, 1000);

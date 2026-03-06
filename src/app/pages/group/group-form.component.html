@@ -1,38 +1,104 @@
 <div class="p-fluid">
 
-  <div class="field">
-    <label>Nombre</label>
-    <input pInputText [(ngModel)]="group.nombre" />
-  </div>
+<!-- NOMBRE -->
+<label>Nombre</label>
+<p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-users"></i>
+  </p-inputgroup-addon>
 
-  <div class="field">
-    <label>Nivel</label>
-    <input pInputText [(ngModel)]="group.nivel" />
-  </div>
+  <input
+    pInputText
+    placeholder="Nombre del grupo"
+    [(ngModel)]="group.nombre" />
+</p-inputgroup>
 
-  <div class="field">
-    <label>Autor</label>
-    <input pInputText [(ngModel)]="group.autor" />
-  </div>
 
-  <div class="field">
-    <label>Integrantes</label>
-    <p-inputNumber [(ngModel)]="group.integrantes"></p-inputNumber>
-  </div>
+<!-- NIVEL -->
+<label>Nivel</label>
+<p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-chart-line"></i>
+  </p-inputgroup-addon>
 
-  <div class="field">
-    <label>Tickets</label>
-    <p-inputNumber [(ngModel)]="group.tickets"></p-inputNumber>
-  </div>
+  <input
+    pInputText
+    placeholder="Nivel"
+    [(ngModel)]="group.nivel" />
+</p-inputgroup>
 
-  <div class="field">
-    <label>Descripción</label>
-    <textarea pInputTextarea rows="3" [(ngModel)]="group.descripcion"></textarea>
-  </div>
 
-  <div class="flex justify-content-end gap-2 mt-3">
-    <button pButton label="Cancelar" class="p-button-text" (click)="cancel()"></button>
-    <button pButton label="Guardar" icon="pi pi-check" (click)="save()"></button>
-  </div>
+<!-- AUTOR -->
+<label>Autor</label>
+<p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-user"></i>
+  </p-inputgroup-addon>
+
+  <input
+    pInputText
+    placeholder="Autor"
+    [(ngModel)]="group.autor" />
+</p-inputgroup>
+
+
+<!-- INTEGRANTES -->
+<label>Integrantes</label>
+<p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-users"></i>
+  </p-inputgroup-addon>
+
+  <p-inputNumber
+    [(ngModel)]="group.integrantes">
+  </p-inputNumber>
+</p-inputgroup>
+
+
+<!-- TICKETS -->
+<label>Tickets</label>
+<p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-ticket"></i>
+  </p-inputgroup-addon>
+
+  <p-inputNumber
+    [(ngModel)]="group.tickets">
+  </p-inputNumber>
+</p-inputgroup>
+
+
+<!-- DESCRIPCIÓN -->
+<label>Descripción</label>
+<p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-align-left"></i>
+  </p-inputgroup-addon>
+
+  <textarea
+    pInputTextarea
+    rows="3"
+    [(ngModel)]="group.descripcion">
+  </textarea>
+</p-inputgroup>
+
+
+<div class="flex justify-content-end gap-2 mt-3">
+
+<button
+  pButton
+  label="Cancelar"
+  class="p-button-text"
+  (click)="cancel()">
+</button>
+
+<button
+  pButton
+  label="Guardar"
+  icon="pi pi-check"
+  (click)="save()">
+</button>
+
+</div>
 
 </div>

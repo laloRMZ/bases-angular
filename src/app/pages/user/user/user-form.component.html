@@ -1,0 +1,35 @@
+<div class="p-fluid">
+
+  <div class="field">
+    <label>Nombre</label>
+    <input pInputText [(ngModel)]="user.nombre">
+  </div>
+
+  <div class="field">
+    <label>Correo</label>
+    <input pInputText [(ngModel)]="user.correo">
+  </div>
+
+  <div class="field">
+    <label>Rol</label>
+    <input pInputText [(ngModel)]="user.rol">
+  </div>
+
+</div>
+
+<div class="flex justify-content-end gap-2 mt-4">
+
+  <button
+    pButton
+    label="Cancelar"
+    class="p-button-text"
+    (click)="cancel()">
+  </button>
+
+  <button
+    pButton
+    label="Guardar"
+    (click)="save()">
+  </button>
+
+</div>

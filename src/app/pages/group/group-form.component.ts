@@ -7,6 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { TextareaModule } from 'primeng/textarea';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { InputGroup } from "primeng/inputgroup";
+import { InputGroupAddon } from "primeng/inputgroupaddon";
 
 @Component({
   standalone: true,
@@ -18,8 +20,10 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     InputTextModule,
     InputNumberModule,
     ButtonModule,
-    TextareaModule
-  ]
+    TextareaModule,
+    InputGroup,
+    InputGroupAddon
+]
 })
 export class GroupFormComponent implements OnInit {
 

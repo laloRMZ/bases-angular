@@ -1,13 +1,25 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+
 import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [FormsModule, ButtonModule, ToastModule],
+  imports: [
+    FormsModule,
+    ButtonModule,
+    ToastModule,
+    InputTextModule,
+    InputGroupModule,
+    InputGroupAddonModule
+  ],
   templateUrl: './register-page.component.html',
   providers: [MessageService]
 })
@@ -26,7 +38,6 @@ export class RegisterPageComponent {
 
   register() {
 
-    // 🔹 Validar campos vacíos
     if (
       !this.usuario || !this.email || !this.password ||
       !this.confirmPassword || !this.nombreCompleto ||
@@ -40,7 +51,6 @@ export class RegisterPageComponent {
       return;
     }
 
-    // 🔹 Validar contraseña
     const passwordRegex = /^(?=.*[!@#$%^&*])/;
     if (this.password.length < 10 || !passwordRegex.test(this.password)) {
       this.messageService.add({
@@ -51,7 +61,6 @@ export class RegisterPageComponent {
       return;
     }
 
-    // 🔹 Confirmar contraseña
     if (this.password !== this.confirmPassword) {
       this.messageService.add({
         severity: 'error',
@@ -61,7 +70,6 @@ export class RegisterPageComponent {
       return;
     }
 
-    // 🔹 Validar mayoría de edad
     if (this.edad < 18) {
       this.messageService.add({
         severity: 'error',
@@ -71,7 +79,6 @@ export class RegisterPageComponent {
       return;
     }
 
-    // 🔹 Validar teléfono solo números
     const telefonoRegex = /^[0-9]+$/;
     if (!telefonoRegex.test(this.telefono)) {
       this.messageService.add({
@@ -82,7 +89,6 @@ export class RegisterPageComponent {
       return;
     }
 
-    // ✅ Si todo es válido
     this.messageService.add({
       severity: 'success',
       summary: 'Registro exitoso',

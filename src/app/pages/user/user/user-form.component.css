@@ -1,0 +1,49 @@
+/* Contenedor general del formulario */
+:host {
+  display: block;
+  padding: 0.5rem;
+}
+
+/* Espaciado entre campos */
+.field {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.field label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+/* Inputs */
+input[pInputText] {
+  width: 100%;
+}
+
+/* Botones */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Ajuste visual botón cancelar */
+.p-button-text {
+  color: #6c757d;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
