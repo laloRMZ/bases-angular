@@ -2,32 +2,25 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 
-import { PermissionService } from '../../../core/service/permission.service';
 import { TicketService } from '../../../core/service/ticket.service';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-dashboard',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule,
-    CardModule,
     ButtonModule
   ],
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  templateUrl: './dashboard.component.html'
 })
-export class HomePageComponent {
+export class DashboardComponent {
 
   tickets: any[] = [];
 
-  constructor(
-    public permissionService: PermissionService,
-    private ticketService: TicketService
-  ) {}
+  constructor(private ticketService: TicketService) {}
 
   ngOnInit() {
     this.tickets = this.ticketService.getTickets();

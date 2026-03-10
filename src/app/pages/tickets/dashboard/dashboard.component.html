@@ -1,0 +1,21 @@
+<h2>Dashboard Tickets</h2>
+
+<div>
+
+  <p>Pendientes: {{getCount('PENDIENTE')}}</p>
+
+  <p>En progreso: {{getCount('EN_PROGRESO')}}</p>
+
+  <p>Revisión: {{getCount('REVISION')}}</p>
+
+  <p>Finalizados: {{getCount('FINALIZADO')}}</p>
+
+</div>
+
+<button 
+  pButton
+  type="button"
+  label="Ir al Kanban"
+  icon="pi pi-bars"
+  routerLink="/tickets/kanban">
+</button>

@@ -1,19 +1,44 @@
 <div class="p-fluid">
 
-  <div class="field">
-    <label>Nombre</label>
-    <input pInputText [(ngModel)]="user.nombre">
-  </div>
+  <label>Nombre</label>
+  <p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-users"></i>
+  </p-inputgroup-addon>
 
-  <div class="field">
-    <label>Correo</label>
-    <input pInputText [(ngModel)]="user.correo">
-  </div>
+  <input
+    pInputText
+    placeholder="Nombre del usuario"
+    [(ngModel)]="user.nombre" />
+  </p-inputgroup>
 
-  <div class="field">
+
+  <label>Correo</label>
+  <p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-envelope"></i>
+  </p-inputgroup-addon>
+
+  <input
+    pInputText
+    placeholder="Correo del usuario"
+    [(ngModel)]="user.correo" />
+  </p-inputgroup>
+
     <label>Rol</label>
-    <input pInputText [(ngModel)]="user.rol">
-  </div>
+  <p-inputgroup class="mb-3">
+  <p-inputgroup-addon>
+    <i class="pi pi-key"></i>
+  </p-inputgroup-addon>
+
+  <input
+    pInputText
+    placeholder="Rol del usuario"
+    [(ngModel)]="user.rol" />
+  </p-inputgroup>
+
+
+
 
 </div>
 

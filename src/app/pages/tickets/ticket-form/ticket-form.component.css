@@ -1,0 +1,8 @@
+.ticket-container{
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.field{
+    margin-bottom: 1rem;
+}

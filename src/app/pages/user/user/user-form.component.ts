@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { InputGroupAddon } from "primeng/inputgroupaddon";
+import { InputGroup } from "primeng/inputgroup";
 
 @Component({
   selector: 'app-user-form',
@@ -14,7 +16,9 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     FormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    InputGroupAddon,
+    InputGroup
   ]
 })
 export class UserFormComponent {

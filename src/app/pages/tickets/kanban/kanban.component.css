@@ -1,0 +1,13 @@
+.kanban-container{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+}
+
+.kanban-column{
+    width:300px;
+}
+
+.ticket-card{
+    margin-bottom:10px;
+}

@@ -1,0 +1,72 @@
+<div class="ticket-container">
+
+<p-card header="Crear Ticket">
+
+  <div class="p-fluid">
+
+    <!-- TITULO -->
+    <div class="field">
+      <p-inputgroup>
+        <p-inputgroup-addon>
+          <i class="pi pi-tag"></i>
+        </p-inputgroup-addon>
+
+        <input
+          pInputText
+          [(ngModel)]="ticket.titulo"
+          placeholder="Título del ticket"
+        />
+      </p-inputgroup>
+    </div>
+
+    <!-- DESCRIPCION -->
+    <div class="field">
+      <p-inputgroup>
+
+        <p-inputgroup-addon>
+          <i class="pi pi-align-left"></i>
+        </p-inputgroup-addon>
+
+        <textarea
+          pInputTextarea
+          rows="4"
+          [(ngModel)]="ticket.descripcion"
+          placeholder="Descripción">
+        </textarea>
+
+      </p-inputgroup>
+    </div>
+
+    <!-- PRIORIDAD -->
+    <div class="field">
+
+      <p-inputgroup>
+
+        <p-inputgroup-addon>
+          <i class="pi pi-flag"></i>
+        </p-inputgroup-addon>
+
+        <p-dropdown
+          [options]="prioridades"
+          [(ngModel)]="ticket.prioridad"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Seleccionar prioridad">
+        </p-dropdown>
+
+      </p-inputgroup>
+
+    </div>
+
+    <button
+      pButton
+      label="Crear Ticket"
+      icon="pi pi-check"
+      (click)="createTicket()">
+    </button>
+
+  </div>
+
+</p-card>
+
+</div>

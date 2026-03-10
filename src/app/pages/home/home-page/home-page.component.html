@@ -4,4 +4,53 @@
     Este es el Home del sistema.
   </p>
 
+  <div>
+
+    <!-- BOTON GRUPOS -->
+    <button 
+      pButton
+      type="button"
+      label="Ir a Grupos"
+      icon="pi pi-users"
+      *ngIf="permissionService.hasPermission('groups:view')" 
+      routerLink="/group">
+    </button>
+
+    <!-- BOTON TICKETS -->
+    <button 
+      pButton
+      type="button"
+      label="Ver Tickets"
+      icon="pi pi-ticket"
+      *ngIf="permissionService.hasPermission('tickets:view')" 
+      routerLink="/tickets/dashboard">
+    </button>
+
+  </div>
+
+</p-card>
+
+
+<p-card header="Resumen de Tickets">
+
+  <div>
+
+    <p-card header="Pendientes">
+      <h2>{{ getCount('PENDIENTE') }}</h2>
+    </p-card>
+
+    <p-card header="En Progreso">
+      <h2>{{ getCount('EN_PROGRESO') }}</h2>
+    </p-card>
+
+    <p-card header="Revisión">
+      <h2>{{ getCount('REVISION') }}</h2>
+    </p-card>
+
+    <p-card header="Finalizados">
+      <h2>{{ getCount('FINALIZADO') }}</h2>
+    </p-card>
+
+  </div>
+
 </p-card>

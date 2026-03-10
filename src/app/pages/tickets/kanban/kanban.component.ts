@@ -1,40 +1,38 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
-
-import { PermissionService } from '../../../core/service/permission.service';
 import { TicketService } from '../../../core/service/ticket.service';
 
+// PrimeNG
+import { CardModule } from 'primeng/card';
+import { TagModule } from 'primeng/tag';
+
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-kanban',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule,
     CardModule,
+    TagModule,
     ButtonModule
   ],
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  templateUrl: './kanban.component.html',
+  styleUrls: ['./kanban.component.css']
 })
-export class HomePageComponent {
+export class KanbanComponent {
 
   tickets: any[] = [];
 
-  constructor(
-    public permissionService: PermissionService,
-    private ticketService: TicketService
-  ) {}
+  constructor(private ticketService: TicketService) {}
 
   ngOnInit() {
     this.tickets = this.ticketService.getTickets();
   }
 
-  getCount(status: string) {
-    return this.tickets.filter(t => t.estado === status).length;
+  getTicketsByStatus(status: string) {
+    return this.tickets.filter(t => t.estado === status);
   }
 
 }

@@ -1,0 +1,118 @@
+  <button 
+  pButton
+  type="button"
+  label="Crear Ticket"
+  icon="pi pi-plus"
+  routerLink="/tickets/create">
+</button>
+<div class="kanban-container">
+
+  <!-- PENDIENTE -->
+  <p-card header="Pendiente" class="kanban-column">
+
+    <div *ngFor="let t of getTicketsByStatus('PENDIENTE')" class="ticket-card">
+
+      <p-card>
+        <ng-template pTemplate="title">
+          <a [routerLink]="['/tickets', t.id]">
+            {{ t.titulo }}
+          </a>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+          <p>{{ t.descripcion }}</p>
+
+          <p-tag
+            value="Pendiente"
+            severity="warn">
+          </p-tag>
+
+        </ng-template>
+      </p-card>
+
+    </div>
+
+  </p-card>
+
+
+  <!-- EN PROGRESO -->
+  <p-card header="En progreso" class="kanban-column">
+
+    <div *ngFor="let t of getTicketsByStatus('EN_PROGRESO')" class="ticket-card">
+
+      <p-card>
+        <ng-template pTemplate="title">
+          {{ t.titulo }}
+        </ng-template>
+
+        <ng-template pTemplate="content">
+
+          <p>{{ t.descripcion }}</p>
+
+          <p-tag
+            value="En progreso"
+            severity="info">
+          </p-tag>
+
+        </ng-template>
+      </p-card>
+
+    </div>
+
+  </p-card>
+
+
+  <!-- REVISION -->
+  <p-card header="Revisión" class="kanban-column">
+
+    <div *ngFor="let t of getTicketsByStatus('REVISION')" class="ticket-card">
+
+      <p-card>
+        <ng-template pTemplate="title">
+          {{ t.titulo }}
+        </ng-template>
+
+        <ng-template pTemplate="content">
+
+          <p>{{ t.descripcion }}</p>
+
+          <p-tag
+            value="Revisión"
+            severity="secondary">
+          </p-tag>
+
+        </ng-template>
+      </p-card>
+
+    </div>
+
+  </p-card>
+
+
+  <!-- FINALIZADO -->
+  <p-card header="Finalizado" class="kanban-column">
+
+    <div *ngFor="let t of getTicketsByStatus('FINALIZADO')" class="ticket-card">
+
+      <p-card>
+        <ng-template pTemplate="title">
+          {{ t.titulo }}
+        </ng-template>
+
+        <ng-template pTemplate="content">
+
+          <p>{{ t.descripcion }}</p>
+
+          <p-tag
+            value="Finalizado"
+            severity="success">
+          </p-tag>
+
+        </ng-template>
+      </p-card>
+
+    </div>
+
+  </p-card>
+
+</div>

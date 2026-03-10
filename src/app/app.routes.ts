@@ -12,6 +12,13 @@ import { HomePageComponent } from './pages/home/home-page/home-page.component';
 import { GroupComponent } from './pages/group/group.component';
 import { UserComponent } from './pages/user/user/user.component';
 
+/* NUEVOS COMPONENTES */
+import { DashboardComponent } from './pages/tickets/dashboard/dashboard.component';
+import { KanbanComponent } from './pages/tickets/kanban/kanban.component';
+import { TicketFormComponent } from './pages/tickets/ticket-form/ticket-form.component';
+import { TicketDetailComponent } from './pages/tickets/ticket-detail/ticket-detail.component';
+  
+
 export const routes: Routes = [
 
   // Landing pública
@@ -35,6 +42,7 @@ export const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
+
       {
         path: 'home',
         component: HomePageComponent,
@@ -51,6 +59,28 @@ export const routes: Routes = [
         path: 'user',
         component: UserComponent,
       },
+
+      /* ===== TICKETS ===== */
+
+      {
+        path: 'tickets/dashboard',
+        component: DashboardComponent,
+      },
+      {
+        path: 'tickets/kanban',
+        component: KanbanComponent,
+      },
+      {
+        path: 'tickets/create',
+        component: TicketFormComponent,
+      },
+      {
+        path: 'tickets/:id',
+        component: TicketDetailComponent,
+      },
+
+      /* =================== */
+
       {
         path: 'landing',
         component: LandingPageComponent,
@@ -63,7 +93,7 @@ export const routes: Routes = [
         path: 'register',
         component: RegisterPageComponent,
       }
-      
+
     ]
   },
 
