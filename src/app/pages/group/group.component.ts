@@ -7,11 +7,12 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DynamicDialogModule, DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-
+import { RouterModule } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { GroupFormComponent } from './group-form.component';
 import { IfHasPermissionDirective } from '../../core/directives/if-has-permission.directive';
+import { Card } from "primeng/card";
 
 @Component({
   selector: 'app-group',
@@ -27,7 +28,9 @@ import { IfHasPermissionDirective } from '../../core/directives/if-has-permissio
     ConfirmDialogModule,
     DynamicDialogModule,
     IfHasPermissionDirective,
-  ],
+    Card,
+    RouterModule 
+],
   providers: [
     DialogService,
     ConfirmationService,

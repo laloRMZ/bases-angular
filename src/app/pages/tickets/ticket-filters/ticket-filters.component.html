@@ -1,0 +1,32 @@
+
+<div class="filters-container">
+
+  <button
+    pButton
+    label="Todos"
+    (click)="setFilter('ALL')"
+    [outlined]="currentFilter !== 'ALL'">
+  </button>
+
+  <button
+    pButton
+    label="Mis tickets"
+    (click)="setFilter('MY_TICKETS')"
+    [outlined]="currentFilter !== 'MY_TICKETS'">
+  </button>
+
+  <button
+    pButton
+    label="Sin asignar"
+    (click)="setFilter('UNASSIGNED')"
+    [outlined]="currentFilter !== 'UNASSIGNED'">
+  </button>
+
+  <button
+    pButton
+    label="Alta prioridad"
+    (click)="setFilter('HIGH_PRIORITY')"
+    [outlined]="currentFilter !== 'HIGH_PRIORITY'">
+  </button>
+
+</div>

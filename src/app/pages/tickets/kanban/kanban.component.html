@@ -1,118 +1,160 @@
+<p-card>
   <button 
   pButton
   type="button"
-  label="Crear Ticket"
-  icon="pi pi-plus"
-  routerLink="/tickets/create">
+  label="Regresar al Home"
+  icon="pi pi-home"
+  routerLink="/home"
+  class="mb-3">
 </button>
-<div class="kanban-container">
 
-  <!-- PENDIENTE -->
-  <p-card header="Pendiente" class="kanban-column">
+</p-card>
 
-    <div *ngFor="let t of getTicketsByStatus('PENDIENTE')" class="ticket-card">
+<button 
+pButton
+type="button"
+label="Crear Ticket"
+icon="pi pi-plus"
+routerLink="/tickets/create">
+</button>
 
-      <p-card>
-        <ng-template pTemplate="title">
-          <a [routerLink]="['/tickets', t.id]">
-            {{ t.titulo }}
-          </a>
-        </ng-template>
+<div class="kanban-container" cdkDropListGroup>
 
-        <ng-template pTemplate="content">
-          <p>{{ t.descripcion }}</p>
+<!-- PENDIENTE -->
+<p-card header="Pendiente" class="kanban-column">
 
-          <p-tag
-            value="Pendiente"
-            severity="warn">
-          </p-tag>
+<div
+cdkDropList
+#pendienteList="cdkDropList"
+[cdkDropListData]="pendientes"
+[cdkDropListConnectedTo]="[enProgresoList, revisionList, finalizadoList]"
+(cdkDropListDropped)="drop($event,'PENDIENTE')">
 
-        </ng-template>
-      </p-card>
+<div *ngFor="let t of pendientes" cdkDrag class="ticket-card">
 
-    </div>
+<p-card>
 
-  </p-card>
+<ng-template pTemplate="title">
+<a [routerLink]="['/tickets', t.id]">
+{{ t.titulo }}
+</a>
+</ng-template>
 
+<ng-template pTemplate="content">
+<p>{{ t.descripcion }}</p>
 
-  <!-- EN PROGRESO -->
-  <p-card header="En progreso" class="kanban-column">
+<p-tag value="Pendiente" severity="warn"></p-tag>
 
-    <div *ngFor="let t of getTicketsByStatus('EN_PROGRESO')" class="ticket-card">
+</ng-template>
 
-      <p-card>
-        <ng-template pTemplate="title">
-          {{ t.titulo }}
-        </ng-template>
+</p-card>
 
-        <ng-template pTemplate="content">
+</div>
 
-          <p>{{ t.descripcion }}</p>
+</div>
 
-          <p-tag
-            value="En progreso"
-            severity="info">
-          </p-tag>
+</p-card>
 
-        </ng-template>
-      </p-card>
+<!-- EN PROGRESO -->
+<p-card header="En progreso" class="kanban-column">
 
-    </div>
+<div
+cdkDropList
+#enProgresoList="cdkDropList"
+[cdkDropListData]="enProgreso"
+[cdkDropListConnectedTo]="[pendienteList, revisionList, finalizadoList]"
+(cdkDropListDropped)="drop($event,'EN_PROGRESO')">
 
-  </p-card>
+<div *ngFor="let t of enProgreso" cdkDrag class="ticket-card">
 
+<p-card>
 
-  <!-- REVISION -->
-  <p-card header="Revisión" class="kanban-column">
+<ng-template pTemplate="title">
+{{ t.titulo }}
+</ng-template>
 
-    <div *ngFor="let t of getTicketsByStatus('REVISION')" class="ticket-card">
+<ng-template pTemplate="content">
 
-      <p-card>
-        <ng-template pTemplate="title">
-          {{ t.titulo }}
-        </ng-template>
+<p>{{ t.descripcion }}</p>
 
-        <ng-template pTemplate="content">
+<p-tag value="En progreso" severity="info"></p-tag>
 
-          <p>{{ t.descripcion }}</p>
+</ng-template>
 
-          <p-tag
-            value="Revisión"
-            severity="secondary">
-          </p-tag>
+</p-card>
 
-        </ng-template>
-      </p-card>
+</div>
 
-    </div>
+</div>
 
-  </p-card>
+</p-card>
 
+<!-- REVISION -->
+<p-card header="Revisión" class="kanban-column">
 
-  <!-- FINALIZADO -->
-  <p-card header="Finalizado" class="kanban-column">
+<div
+cdkDropList
+#revisionList="cdkDropList"
+[cdkDropListData]="revision"
+[cdkDropListConnectedTo]="[pendienteList, enProgresoList, finalizadoList]"
+(cdkDropListDropped)="drop($event,'REVISION')">
 
-    <div *ngFor="let t of getTicketsByStatus('FINALIZADO')" class="ticket-card">
+<div *ngFor="let t of revision" cdkDrag class="ticket-card">
 
-      <p-card>
-        <ng-template pTemplate="title">
-          {{ t.titulo }}
-        </ng-template>
+<p-card>
 
-        <ng-template pTemplate="content">
+<ng-template pTemplate="title">
+{{ t.titulo }}
+</ng-template>
 
-          <p>{{ t.descripcion }}</p>
+<ng-template pTemplate="content">
 
-          <p-tag
-            value="Finalizado"
-            severity="success">
-          </p-tag>
+<p>{{ t.descripcion }}</p>
 
-        </ng-template>
-      </p-card>
+<p-tag value="Revisión" severity="secondary"></p-tag>
 
-    </div>
+</ng-template>
 
-  </p-card>
+</p-card>
+
+</div>
+
+</div>
+
+</p-card>
+
+<!-- FINALIZADO -->
+<p-card header="Finalizado" class="kanban-column">
+
+<div
+cdkDropList
+#finalizadoList="cdkDropList"
+[cdkDropListData]="finalizado"
+[cdkDropListConnectedTo]="[pendienteList, enProgresoList, revisionList]"
+(cdkDropListDropped)="drop($event,'FINALIZADO')">
+
+<div *ngFor="let t of finalizado" cdkDrag class="ticket-card">
+
+<p-card>
+
+<ng-template pTemplate="title">
+{{ t.titulo }}
+</ng-template>
+
+<ng-template pTemplate="content">
+
+<p>{{ t.descripcion }}</p>
+
+<p-tag value="Finalizado" severity="success"></p-tag>
+
+</ng-template>
+
+</p-card>
+
+</div>
+
+</div>
+
+</p-card>
 
 </div>

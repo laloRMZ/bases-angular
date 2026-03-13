@@ -20,7 +20,7 @@ export class AppComponent {
     this.permissionService.setPermissions([
       'groups:view', 'groups:add','groups:edit','groups:delete',
       'users:view','users:add','users:edit','users:delete',
-      'tickets:view'
+      'tickets:view', 'tickets:add','tickets:edit','tickets:delete'
     ]);
 
   }

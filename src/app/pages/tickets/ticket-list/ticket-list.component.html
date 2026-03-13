@@ -1,0 +1,95 @@
+<div class="ticket-list-container">
+   <button
+      pButton
+      type="button"
+      label="Regresar al Home"
+      icon="pi pi-home"
+      routerLink="/home"
+      class="p-button-sm">
+    </button>
+  <h2>Tickets</h2>
+
+  <!-- FILTROS RÁPIDOS -->
+  <app-ticket-filters
+    (filterChange)="applyFilter($event)">
+  </app-ticket-filters>
+
+  <p-table
+    [value]="filteredTickets"
+    [paginator]="true"
+    [rows]="10"
+    [responsiveLayout]="'scroll'"
+    sortMode="multiple">
+
+    <ng-template pTemplate="header">
+      <tr>
+
+        <th pSortableColumn="id">
+          ID
+          <p-sortIcon field="id"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="titulo">
+          Título
+          <p-sortIcon field="titulo"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="estado">
+          Estado
+          <p-sortIcon field="estado"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="asignado">
+          Asignado
+          <p-sortIcon field="asignado"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="prioridad">
+          Prioridad
+          <p-sortIcon field="prioridad"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="fechaLimite">
+          Fecha límite
+          <p-sortIcon field="fechaLimite"></p-sortIcon>
+        </th>
+
+        <th>Acciones</th>
+
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-ticket>
+
+      <tr>
+
+        <td>{{ticket.id}}</td>
+
+        <td>{{ticket.titulo}}</td>
+
+        <td>{{ticket.estado}}</td>
+
+        <td>{{ticket.asignado}}</td>
+
+        <td>{{ticket.prioridad}}</td>
+
+        <td>{{ticket.fechaLimite}}</td>
+
+        <td>
+
+          <button
+            pButton
+            icon="pi pi-eye"
+            class="p-button-rounded p-button-text"
+            (click)="viewTicket(ticket)">
+          </button>
+
+        </td>
+
+      </tr>
+
+    </ng-template>
+
+  </p-table>
+
+</div>

@@ -1,0 +1,42 @@
+.dashboard-container{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.dashboard-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.dashboard-actions{
+  display:flex;
+  gap:10px;
+}
+
+.ticket-summary{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:20px;
+}
+
+.summary-card{
+  text-align:center;
+}
+
+.pendiente{
+  border-left:5px solid #f59e0b;
+}
+
+.progreso{
+  border-left:5px solid #3b82f6;
+}
+
+.revision{
+  border-left:5px solid #a855f7;
+}
+
+.finalizado{
+  border-left:5px solid #22c55e;
+}

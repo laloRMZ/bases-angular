@@ -1,56 +1,144 @@
-<p-card header="Bienvenido">
+<div class="dashboard-container">
 
-  <p>
-    Este es el Home del sistema.
-  </p>
+  <!-- HEADER -->
+  <p-card>
 
-  <div>
+    <div class="dashboard-header">
 
-    <!-- BOTON GRUPOS -->
-    <button 
-      pButton
-      type="button"
-      label="Ir a Grupos"
-      icon="pi pi-users"
-      *ngIf="permissionService.hasPermission('groups:view')" 
-      routerLink="/group">
-    </button>
+      <div>
+        <h2>Dashboard del Grupo</h2>
+        <p>Grupo: <strong>{{ groupName }}</strong></p>
+        <p>Modelo LLM activo: <strong>{{ llmModel }}</strong></p>
+      </div>
 
-    <!-- BOTON TICKETS -->
-    <button 
-      pButton
-      type="button"
-      label="Ver Tickets"
-      icon="pi pi-ticket"
-      *ngIf="permissionService.hasPermission('tickets:view')" 
-      routerLink="/tickets/dashboard">
-    </button>
+      <div class="dashboard-actions">
+
+        <button
+          pButton
+          label="Ver Kanban"
+          icon="pi pi-table"
+          routerLink="/tickets/kanban">
+        </button>
+
+        <button
+          pButton
+          label="Lista de Tickets"
+          icon="pi pi-list"
+          routerLink="/tickets">
+        </button>
+
+      </div>
+
+    </div>
+
+  </p-card>
+
+
+  <!-- RESUMEN -->
+  <div class="ticket-summary">
+
+    <p-card class="summary-card pendiente">
+      <h3>Pendientes</h3>
+      <h1>{{ getCount('PENDIENTE') }}</h1>
+    </p-card>
+
+    <p-card class="summary-card progreso">
+      <h3>En progreso</h3>
+      <h1>{{ getCount('EN_PROGRESO') }}</h1>
+    </p-card>
+
+    <p-card class="summary-card revision">
+      <h3>Revisión</h3>
+      <h1>{{ getCount('REVISION') }}</h1>
+    </p-card>
+
+    <p-card class="summary-card finalizado">
+      <h3>Finalizados</h3>
+      <h1>{{ getCount('FINALIZADO') }}</h1>
+    </p-card>
 
   </div>
 
-</p-card>
+
+  <!-- TICKETS RECIENTES -->
+  <p-card header="Tickets Recientes">
+
+    <p-table
+      [value]="getRecentTickets()"
+      responsiveLayout="scroll">
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Estado</th>
+          <th>Asignado</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-ticket>
+
+        <tr>
+
+          <td>{{ticket.id}}</td>
+
+          <td>
+            <a [routerLink]="['/tickets', ticket.id]">
+              {{ticket.titulo}}
+            </a>
+          </td>
+
+          <td>{{ticket.estado}}</td>
+
+          <td>{{ticket.asignadoA}}</td>
+
+        </tr>
+
+      </ng-template>
+
+    </p-table>
+
+  </p-card>
 
 
-<p-card header="Resumen de Tickets">
+  <!-- MIS TICKETS -->
+  <p-card header="Mis Tickets Asignados">
 
-  <div>
+    <p-table
+      [value]="assignedTickets"
+      responsiveLayout="scroll">
 
-    <p-card header="Pendientes">
-      <h2>{{ getCount('PENDIENTE') }}</h2>
-    </p-card>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Estado</th>
+          <th>Prioridad</th>
+        </tr>
+      </ng-template>
 
-    <p-card header="En Progreso">
-      <h2>{{ getCount('EN_PROGRESO') }}</h2>
-    </p-card>
+      <ng-template pTemplate="body" let-ticket>
 
-    <p-card header="Revisión">
-      <h2>{{ getCount('REVISION') }}</h2>
-    </p-card>
+        <tr>
 
-    <p-card header="Finalizados">
-      <h2>{{ getCount('FINALIZADO') }}</h2>
-    </p-card>
+          <td>{{ticket.id}}</td>
 
-  </div>
+          <td>
+            <a [routerLink]="['/tickets', ticket.id]">
+              {{ticket.titulo}}
+            </a>
+          </td>
 
-</p-card>
+          <td>{{ticket.estado}}</td>
+
+          <td>{{ticket.prioridad}}</td>
+
+        </tr>
+
+      </ng-template>
+
+    </p-table>
+
+  </p-card>
+
+</div>

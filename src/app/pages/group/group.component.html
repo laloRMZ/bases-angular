@@ -1,22 +1,33 @@
 <p-toast></p-toast>
 <p-confirmDialog></p-confirmDialog>
 
-<p-toolbar styleClass="mb-4">
+<p-card header="Navegación" styleClass="mb-4">
+  <div class="card-content">
+    <button
+      pButton
+      type="button"
+      label="Regresar al Home"
+      icon="pi pi-home"
+      routerLink="/home"
+      class="p-button-sm">
+    </button>
+  </div>
+</p-card>
 
+<p-toolbar styleClass="mb-4">
   <ng-template pTemplate="start">
     <h2>Gestión de Grupos</h2>
   </ng-template>
 
   <ng-template pTemplate="end">
     <button
-    pButton
-    label="Nuevo"
-    icon="pi pi-plus"
-    *ifHasPermission="['groups:add']"
-    (click)="openNew()">
-  </button>
+      pButton
+      label="Nuevo"
+      icon="pi pi-plus"
+      *ifHasPermission="['groups:add']"
+      (click)="openNew()">
+    </button>
   </ng-template>
-
 </p-toolbar>
 
 <p-table
@@ -37,30 +48,24 @@
 
   <ng-template pTemplate="body" let-group>
     <tr>
-
       <td>{{ group.nombre }}</td>
 
       <td>
-        <span class="p-tag p-tag-info">
-          {{ group.nivel }}
-        </span>
+        <span class="p-tag p-tag-info">{{ group.nivel }}</span>
       </td>
 
       <td>{{ group.autor }}</td>
-
       <td>{{ group.integrantes }}</td>
-
       <td>{{ group.tickets }}</td>
 
       <td>
-
         <button
-        pButton
-        icon="pi pi-pencil"
-        class="p-button-rounded p-button-text"
-        *ifHasPermission="['groups:edit']"
-        (click)="editGroup(group)">
-      </button>
+          pButton
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-text"
+          *ifHasPermission="['groups:edit']"
+          (click)="editGroup(group)">
+        </button>
 
         <button
           pButton
@@ -69,9 +74,7 @@
           *ifHasPermission="['groups:delete']"
           (click)="deleteGroup(group)">
         </button>
-
       </td>
-
     </tr>
   </ng-template>
 

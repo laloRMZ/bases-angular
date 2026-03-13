@@ -1,13 +1,24 @@
 .kanban-container{
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
+display:flex;
+gap:20px;
+align-items:flex-start;
+padding-top:20px;
 }
 
 .kanban-column{
-    width:300px;
+width:300px;
 }
 
 .ticket-card{
-    margin-bottom:10px;
+margin-bottom:10px;
+cursor:move;
+}
+
+.cdk-drag-preview{
+box-shadow:0 5px 10px rgba(0,0,0,0.3);
+border-radius:8px;
+}
+
+.cdk-drag-placeholder{
+opacity:0.3;
 }
