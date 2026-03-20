@@ -1,76 +1,26 @@
-/* Contenedor principal */
-.login-container {
-  height: 100%;
-  min-height: 100vh;
+/* 🔥 Arregla inputs globales */
+.login-card input {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* Tarjeta */
+/* 🔥 Controla el formulario */
+.login-card form {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* 🔥 Corrige PrimeNG */
+:host ::ng-deep .p-inputgroup {
+  width: 100%;
+  display: flex;
+}
+
+:host ::ng-deep .p-inputtext {
+  flex: 1;
+  border-radius: 10px;
+}
+
+/* 🔥 Ajusta el card */
 .login-card {
-  width: 380px;
-  padding: 35px;
-  border-radius: 16px;
-  background: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  animation: fadeIn 0.6s ease;
-}
-
-/* Títulos */
-.title {
-  text-align: center;
-  margin-bottom: 5px;
-  font-size: 26px;
-  font-weight: bold;
-  color: #333;
-}
-
-.subtitle {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #777;
-  font-size: 14px;
-}
-
-/* Campos */
-.field {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.field label {
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #444;
-}
-
-.w-100 {
-  width: 100%;
-}
-
-input {
-  width: 100%;
-}
-
-/* Botón */
-.login-btn {
-  width: 100%;
-  margin-top: 10px;
-  border-radius: 8px !important;
-  font-weight: 600;
-}
-
-/* Animación */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  width: 340px;
 }

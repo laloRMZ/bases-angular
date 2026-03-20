@@ -14,15 +14,17 @@ export class AppComponent {
 
   title = 'Eduardo Ramirez';
 
-  constructor(private permissionService: PermissionService) {
+constructor(private permissionService: PermissionService) {
 
+  this.permissionService.setSession(
+    'admin@marher.com',
+    [
+      'group:view', 'group:add','group:edit','group:delete',
+      'user:view','user:add','user:edit','user:delete',
+      'ticket:view', 'ticket:add','ticket:edit','ticket:delete'
+    ]
+  );
 
-    this.permissionService.setPermissions([
-      'groups:view', 'groups:add','groups:edit','groups:delete',
-      'users:view','users:add','users:edit','users:delete',
-      'tickets:view', 'tickets:add','tickets:edit','tickets:delete'
-    ]);
-
-  }
+}
 
 }

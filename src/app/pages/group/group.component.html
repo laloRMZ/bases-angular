@@ -24,7 +24,7 @@
       pButton
       label="Nuevo"
       icon="pi pi-plus"
-      *ifHasPermission="['groups:add']"
+      *ifHasPermission="['group:add']"
       (click)="openNew()">
     </button>
   </ng-template>
@@ -63,7 +63,7 @@
           pButton
           icon="pi pi-pencil"
           class="p-button-rounded p-button-text"
-          *ifHasPermission="['groups:edit']"
+          *ifHasPermission="['group:edit']"
           (click)="editGroup(group)">
         </button>
 
@@ -71,7 +71,7 @@
           pButton
           icon="pi pi-trash"
           class="p-button-rounded p-button-text p-button-danger"
-          *ifHasPermission="['groups:delete']"
+          *ifHasPermission="['group:delete']"
           (click)="deleteGroup(group)">
         </button>
       </td>

@@ -47,6 +47,11 @@
     background:transparent;
 }
 
+.logout-container {
+  margin-top: 20px;
+  padding: 10px;
+}
+
 /* FOOTER */
 .sidebar-footer{
     margin-top:auto;

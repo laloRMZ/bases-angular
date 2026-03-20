@@ -13,7 +13,7 @@
       pButton
       label="Nuevo"
       icon="pi pi-plus"
-      *ifHasPermission="['users:xd']"
+      *ifHasPermission="['user:add']"
       (click)="openNew()">
     </button>
 
@@ -48,7 +48,7 @@
           pButton
           icon="pi pi-pencil"
           class="p-button-rounded p-button-text"
-          *ifHasPermission="['users:edit']"
+          *ifHasPermission="['user:edit']"
           (click)="editUser(user)">
         </button>
 
@@ -56,7 +56,7 @@
           pButton
           icon="pi pi-trash"
           class="p-button-rounded p-button-text p-button-danger"
-          *ifHasPermission="['users:delete']"
+          *ifHasPermission="['user:delete']"
           (click)="deleteUser(user)">
         </button>
 

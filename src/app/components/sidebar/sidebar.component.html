@@ -12,6 +12,17 @@
     <!-- MENU -->
     <p-panelMenu [model]="items"></p-panelMenu>
 
+    <!-- 🔴 LOGOUT -->
+    <div class="logout-container">
+      <button pButton 
+              type="button" 
+              label="Cerrar sesión" 
+              icon="pi pi-sign-out"
+              class="p-button-danger w-full"
+              (click)="logout()">
+      </button>
+    </div>
+
     <!-- FOOTER -->
     <div class="sidebar-footer">
       <small>Version 19.2.0</small>

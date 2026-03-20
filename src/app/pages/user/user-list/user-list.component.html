@@ -1,0 +1,30 @@
+<h2>Gestión de Usuarios</h2>
+
+<p-table [value]="users" responsiveLayout="scroll">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Email</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-user>
+    <tr>
+      <td>{{ user.email }}</td>
+
+      <td>
+        <!-- 🔐 PERMISOS -->
+        <button 
+          pButton 
+          icon="pi pi-lock"
+          label="Permisos"
+          class="p-button-warning"
+          [routerLink]="['/user', user.id, 'permissions']">
+        </button>
+      </td>
+
+    </tr>
+  </ng-template>
+
+</p-table>

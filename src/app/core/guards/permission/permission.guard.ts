@@ -1,11 +1,23 @@
 import { inject } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
-import { PermissionService } from '../../service/permission.service';
+import { CanActivateFn, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
-export const permissionGuard: CanActivateFn = () => {
+export const permissionGuard: CanActivateFn = (route: ActivatedRouteSnapshot) => {
 
-  const permissionService = inject(PermissionService);
+  const auth = inject(AuthService);
+  const router = inject(Router);
 
-  return permissionService.hasPermission('groups:view');
+  const permission = route.data['permission'];
 
+  if (!auth.isLoggedIn()) {
+    router.navigate(['/auth/login']);
+    return false;
+  }
+
+  if (!auth.hasPermission(permission)) {
+    router.navigate(['/home']);
+    return false;
+  }
+
+  return true;
 };
